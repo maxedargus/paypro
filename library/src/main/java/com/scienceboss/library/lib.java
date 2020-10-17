@@ -45,25 +45,25 @@ public class lib {
 
 
 
-    private CountDownTimer refresher;
+    private static CountDownTimer refresher;
 
 
 
-    public void setAppname(Context context, String appname){
+    public static void setAppname(Context context, String appname){
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("3886PayStackOverflowAppName",appname);
         editor.apply();
     }
 
-    public String getAppName(Context context){
+    public static  String getAppName(Context context){
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         String appname = pref.getString("3886PayStackOverflowAppName","");
         return appname;
     }
 
 
-    public void setImei(Context context){
+    public static void setImei(Context context){
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
 
@@ -82,7 +82,7 @@ public class lib {
 
     }
 
-    public String getImei(Context context){
+    public static String getImei(Context context){
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         String imei = pref.getString("3886PayStackOverflowImei","");
         return imei;
@@ -112,7 +112,7 @@ public class lib {
 
 
 
-    public  Boolean makeRequest2(final Context context, String ussd, String serial, String amount, String Network, final Button send, final String appname, final String code){
+    public static Boolean makeRequest2(final Context context, String ussd, String serial, String amount, String Network, final Button send, final String appname, final String code){
 
         final Boolean[] sent = new Boolean[1];
         final String[] value2 = new String[1];
@@ -213,7 +213,7 @@ public class lib {
 
 
 
-    public void setNumbertoServer(final Context context, String app) {
+    static public void setNumbertoServer(final Context context, String app) {
 
         ///add permission dialog for imei, compulsory
         ///add permission dialog for imei, compulsory
@@ -247,7 +247,7 @@ public class lib {
 
 
 
-    public void ShowDialog(String heading, String text, Context context) {
+   static public void ShowDialog(String heading, String text, Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(false);
         builder.setTitle(heading);
@@ -270,7 +270,7 @@ public class lib {
 
 
 
-    public void setmessage(Context context,String message){
+    static public void setmessage(Context context,String message){
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.receivedialog);
@@ -288,7 +288,7 @@ public class lib {
 
 
 
-    public void options(final Context context, final String appname, final String code, final CountDownTimer timer){
+   static public void options(final Context context, final String appname, final String code, final CountDownTimer timer){
 
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -441,7 +441,7 @@ public class lib {
 
 
 
-    public  void detailsDialog(final Context context, final String appname, final String code){
+    public static void detailsDialog(final Context context, final String appname, final String code){
 
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -517,7 +517,7 @@ public class lib {
 
 
 
-    public void downloadMessage(final Context context,String app){
+    public static void downloadMessage(final Context context,String app){
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         final SharedPreferences.Editor editor = pref.edit();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -538,7 +538,7 @@ public class lib {
 
 
 
-    public void errorflash(final View button) {
+    public static void errorflash(final View button) {
         Animation animation = new AlphaAnimation(1,0);
         animation.setDuration(500);
         animation.setInterpolator(new LinearInterpolator());
